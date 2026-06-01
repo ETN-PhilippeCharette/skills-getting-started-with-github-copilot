@@ -58,20 +58,87 @@ section h3 {
 }
 
 .activity-card {
-  margin-bottom: 15px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  margin-bottom: 20px;
+  padding: 24px;
+  border: 1px solid #e0e7ff;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
 }
 
 .activity-card h4 {
-  margin-bottom: 10px;
-  color: #0066cc;
+  margin-bottom: 12px;
+  color: #1d4ed8;
+  font-size: 1.35rem;
 }
 
 .activity-card p {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  color: #1f2937;
+}
+
+.activity-card p strong {
+  color: #111827;
+}
+
+.participants {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 12px;
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+}
+
+.participants-title {
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #1d4ed8;
+  font-size: 0.95rem;
+}
+
+.participant-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: #334155;
+}
+
+.participant-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.12);
+}
+
+.participant-list li:last-child {
+  border-bottom: none;
+}
+
+.participant-email {
+  color: #0f172a;
+  font-weight: 500;
+}
+
+.participant-remove {
+  border: none;
+  background: transparent;
+  color: #1d4ed8;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.participant-remove:hover {
+  background-color: rgba(29, 78, 216, 0.12);
+}
+
+.no-participants {
+  color: #475569;
+  font-style: italic;
 }
 
 .form-group {
@@ -136,9 +203,96 @@ button:hover {
   display: none;
 }
 
+.snackbar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1f2937;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 90%;
+  z-index: 1000;
+  transition: all 0.3s ease-out;
+}
+
+.snackbar.open {
+  animation: slideUp 0.3s ease-out;
+}
+
+.snackbar.closing {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateX(-50%) translateY(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-50%) translateY(120%);
+    opacity: 0;
+  }
+}
+
+.snackbar p {
+  margin: 0;
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.snackbar-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.snackbar-btn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 14px;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.snackbar-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.snackbar-btn.confirm {
+  background-color: #ef4444;
+  border-color: #ef4444;
+}
+
+.snackbar-btn.confirm:hover {
+  background-color: #dc2626;
+  border-color: #dc2626;
+}
+
 footer {
   text-align: center;
   margin-top: 30px;
   padding: 20px;
   color: #666;
 }
+
